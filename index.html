@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Sparks - Pong Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Initial Screen -->
+        <div id="welcomeScreen" class="screen active">
+            <div class="container">
+                <h1>White Sparks</h1>
+                <p class="subtitle">Pong Game - $1.00</p>
+                <div class="mode-selection">
+                    <button id="aiModeBtn" class="btn btn-primary">Play vs AI</button>
+                    <button id="multiplayerModeBtn" class="btn btn-secondary">Play vs Player</button>
+                </div>
+                <p class="info">One-time payment of $1.00 to play</p>
+            </div>
+        </div>
+
+        <!-- Payment Screen -->
+        <div id="paymentScreen" class="screen">
+            <div class="container payment-container">
+                <h2>Complete Payment</h2>
+                <div class="payment-info">
+                    <p>Game Mode: <span id="modeDisplay"></span></p>
+                    <p class="price">Amount: $1.00</p>
+                </div>
+                <div id="card-element" class="stripe-element"></div>
+                <button id="payBtn" class="btn btn-primary">Pay $1.00</button>
+                <button id="backToWelcomeBtn" class="btn btn-secondary">Back</button>
+                <div id="paymentStatus" class="payment-status"></div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="screen">
+            <div class="game-container">
+                <canvas id="pongCanvas" width="800" height="400"></canvas>
+                <div class="hud">
+                    <div class="score">
+                        <span id="player1Score">0</span>
+                        <span class="divider">:</span>
+                        <span id="player2Score">0</span>
+                    </div>
+                    <div class="status">
+                        <span id="gameStatus">Ready</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <p id="player1Label">Player 1: W/S or ↑/↓</p>
+                    <p id="player2Label">Player 2: ↑/↓</p>
+                </div>
+                <div class="game-buttons">
+                    <button id="pauseBtn" class="btn btn-small">Pause</button>
+                    <button id="resetBtn" class="btn btn-small">Reset</button>
+                    <button id="exitGameBtn" class="btn btn-small">Exit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen">
+            <div class="container">
+                <h2>Game Over</h2>
+                <p class="final-score">
+                    Player 1: <span id="finalScore1">0</span> - Player 2: <span id="finalScore2">0</span>
+                </p>
+                <p id="winner" class="winner-text"></p>
+                <button id="playAgainBtn" class="btn btn-primary">Play Again</button>
+                <button id="backToMenuBtn" class="btn btn-secondary">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="game.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>

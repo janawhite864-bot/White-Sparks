@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.screen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #00d4ff;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.mode-selection {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00d4ff, #7b2cbf);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.btn-secondary {
+    background: #333;
+    color: #00d4ff;
+    border: 2px solid #00d4ff;
+}
+
+.btn-secondary:hover {
+    background: #00d4ff;
+    color: #1a1a2e;
+    transform: scale(1.05);
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    margin: 0 5px;
+}
+
+.info {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+/* Payment Screen */
+.payment-container {
+    max-width: 400px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #00d4ff;
+}
+
+.payment-info {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.payment-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.price {
+    font-size: 1.5rem !important;
+    color: #00d4ff;
+    font-weight: bold;
+}
+
+.stripe-element {
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.05);
+    margin-bottom: 20px;
+}
+
+#payBtn {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#backToWelcomeBtn {
+    width: 100%;
+}
+
+.payment-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+.payment-status.success {
+    background: rgba(0, 255, 0, 0.1);
+    color: #00ff00;
+    display: block;
+}
+
+.payment-status.error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4444;
+    display: block;
+}
+
+/* Game Screen */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#pongCanvas {
+    border: 3px solid #00d4ff;
+    background: #000;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    border-radius: 5px;
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    font-size: 1.2rem;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00d4ff;
+    flex: 1;
+    text-align: center;
+}
+
+.divider {
+    margin: 0 20px;
+}
+
+.status {
+    flex: 1;
+    text-align: center;
+    color: #aaa;
+}
+
+.controls {
+    width: 800px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.game-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Game Over Screen */
+#gameOverScreen .container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    border-radius: 10px;
+    border: 2px solid #00d4ff;
+}
+
+.final-score {
+    font-size: 1.5rem;
+    margin: 20px 0;
+    color: #00d4ff;
+}
+
+.winner-text {
+    font-size: 1.3rem;
+    color: #00ff00;
+    margin: 20px 0 30px 0 !important;
+    font-weight: bold;
+}
+
+#playAgainBtn {
+    margin-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    #pongCanvas {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .hud, .controls {
+        width: 100%;
+        max-width: 600px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
